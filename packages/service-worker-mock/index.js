@@ -40,7 +40,7 @@ const makeListenersWithReset = () => {
   return listeners;
 };
 
-class ServiceWorkerGlobalScope {
+class ServiceWorkerGlobalScopeMock {
   constructor(envOptions) {
     const options = defaults(envOptions);
     this.listeners = makeListenersWithReset();
@@ -67,7 +67,7 @@ class ServiceWorkerGlobalScope {
     this.PushSubscription = PushSubscription;
     this.Request = Request;
     this.Response = Response;
-    this.ServiceWorkerGlobalScope = ServiceWorkerGlobalScope;
+    this.ServiceWorkerGlobalScopeMock = ServiceWorkerGlobalScopeMock;
     this.URL = URL;
     this.MessageEvent = MessageEvent;
 
@@ -108,5 +108,5 @@ class ServiceWorkerGlobalScope {
 }
 
 module.exports = function makeServiceWorkerEnv(envOptions) {
-  return new ServiceWorkerGlobalScope(envOptions);
+  return new ServiceWorkerGlobalScopeMock(envOptions);
 };

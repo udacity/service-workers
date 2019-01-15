@@ -4,7 +4,7 @@ describe('installation', () => {
   it('should make a valid service worker environment', () => {
     Object.assign(global, makeServiceWorkerEnv());
     expect(self).toBeDefined();
-    expect(self instanceof ServiceWorkerGlobalScope).toBe(true);
+    expect(self instanceof ServiceWorkerGlobalScopeMock).toBe(true);
   });
 
   it('should allow location overrides', () => {
